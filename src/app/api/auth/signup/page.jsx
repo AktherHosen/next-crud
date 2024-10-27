@@ -45,7 +45,7 @@ const Page = () => {
   };
 
   return (
-    <div className="flex items-center h-[600px] justify-center">
+    <div className="flex items-center mt-4 justify-center">
       <div className="w-[400px]  border px-2 py-2 space-y-4">
         <h1 className="uppercase font-bold">Register</h1>
         <form onSubmit={handleRegister} className="space-y-2">
@@ -97,7 +97,7 @@ const Page = () => {
           </div>
           <button
             type="submit"
-            className="px-4 py-1 bg-red-500 mt-2 text-white"
+            className="px-4 py-1 bg-gray-600 mt-2 text-white"
           >
             Register
           </button>
