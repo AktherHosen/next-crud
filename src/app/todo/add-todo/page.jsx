@@ -39,9 +39,9 @@ const TodoPage = () => {
 
       const data = await res.json();
       if (res.status === 201) {
-        console.log(data.message); // "To-do added successfully"
-        event.target.reset(); // Clear the form
-        router.push("/"); // Redirect to the my-todo page
+        console.log(data.message);
+        event.target.reset();
+        router.push("/");
       } else {
         console.error("Error:", data.message);
       }
@@ -51,25 +51,30 @@ const TodoPage = () => {
   };
 
   return (
-    <div>
-      <h1>Add a New To-Do</h1>
-      <form onSubmit={handleAddTodo}>
-        <div>
-          <label className="block" htmlFor="todo">
-            To-Do
-          </label>
-          <input
-            className="border px-2 py-1"
-            type="text"
-            name="todo"
-            placeholder="Enter a new task"
-            required
-          />
-        </div>
-        <button type="submit" className="px-4 py-1 bg-blue-500 mt-2 text-white">
-          Add To-Do
-        </button>
-      </form>
+    <div className="flex justify-center items-center mt-4">
+      <div className="border px-2 py-2 space-y-2">
+        <h1 className="font-semibold uppercase">TODO: </h1>
+        <form onSubmit={handleAddTodo} className="w-[350px] space-y-3">
+          <div>
+            <label className="block" htmlFor="todo">
+              Title
+            </label>
+            <input
+              className="border px-2 py-1 w-full"
+              type="text"
+              name="todo"
+              placeholder="Enter a new task"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="px-4 py-1 bg-gray-600 mt-2 text-white my-2"
+          >
+            Create
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

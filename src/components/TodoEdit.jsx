@@ -41,13 +41,13 @@ const TodoEdit = ({ todo, id }) => {
         <input
           type="text"
           value={updatedTodo}
-          className="px-4 py-3 border block w-full"
+          className="px-4 py-2 border block w-full"
           onChange={(e) => setUpdatedTodo(e.target.value)}
           required
         />
         <button
           type="submit"
-          className="bg-green-500 px-2 py-1 mt-2 text-white font-bold"
+          className="bg-gray-600 px-2 py-1 mt-2 text-white "
         >
           Update Todo
         </button>

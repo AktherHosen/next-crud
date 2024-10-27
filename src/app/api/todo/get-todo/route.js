@@ -4,8 +4,6 @@ export const GET = async (request) => {
   try {
     const db = await connectDB();
     const todosCollection = db.collection("todos");
-
-    // Fetch all todos from the collection
     const todos = await todosCollection.find({}).toArray();
 
     return new NextResponse(JSON.stringify(todos), {

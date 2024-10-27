@@ -16,9 +16,8 @@ export const POST = async (request) => {
     const db = await connectDB();
     const todosCollection = db.collection("todos");
 
-    const { todo } = await request.json(); // Only need the todo content
+    const { todo } = await request.json();
 
-    // Validate inputs
     if (!todo) {
       return new NextResponse(
         JSON.stringify({ message: "To-do content is required" }),
@@ -30,13 +29,12 @@ export const POST = async (request) => {
     }
 
     const newTodo = {
-      email: session.user.email, // Automatically set email from session
-      todo, // The todo content
-      completed: false, // Default status
-      createdAt: new Date(), // Timestamp for sorting
+      email: session.user.email,
+      todo,
+      completed: false,
+      createdAt: new Date(),
     };
 
-    // Insert the new to-do into the collection
     await todosCollection.insertOne(newTodo);
 
     return new NextResponse(

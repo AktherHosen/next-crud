@@ -1,7 +1,6 @@
 import connectDB from "@/lib/connectDB";
-import { ObjectId } from "mongodb"; // Make sure to import ObjectId
+import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
-// Named export for GET request
 export const GET = async (request, { params }) => {
   const id = params.id;
 
@@ -16,7 +15,7 @@ export const GET = async (request, { params }) => {
   try {
     const db = await connectDB();
     const todosCollection = await db.collection("todos");
-    const todo = await todosCollection.findOne({ _id: new ObjectId(id) }); // Use ObjectId
+    const todo = await todosCollection.findOne({ _id: new ObjectId(id) });
 
     if (!todo) {
       return new NextResponse(JSON.stringify({ message: "Todo not found" }), {
