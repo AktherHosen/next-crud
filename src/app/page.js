@@ -58,7 +58,6 @@ const Home = () => {
 
       const data = await res.json();
       if (res.status === 200) {
-        console.log(data.message);
         fetchTodos();
       } else {
         console.error("Error:", data.message);
