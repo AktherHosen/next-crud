@@ -15,17 +15,14 @@ const connectDB = async () => {
         deprecationErrors: true,
       },
     });
-
-    // Establish connection and wait for completion
-    await client.connect();
+    // await client.connect();
     db = client.db("next-crud");
-    console.log("Connected to MongoDB successfully");
+
     return db;
   } catch (error) {
     console.error("MongoDB connection error:", error);
-    throw error; // Rethrow error for handling in the calling function
+    throw error;
   }
 };
 
-// Export the connection function as default
 export default connectDB;
